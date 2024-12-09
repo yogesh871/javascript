@@ -2,8 +2,8 @@
 
 //  Arthmenic Opretprs
 
-let a = 66;
-let b = 66;
+let a = 43;
+let b = 36;
 
 console.log(a + b)
 console.log(a - b)
