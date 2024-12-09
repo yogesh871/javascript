@@ -23,7 +23,7 @@ document.getElementById("text").innerHTML = "hellow"
 
 
 
-// ---- VARIABLE N JAVASCRIPT
+// ---- VARIABLE IN JAVASCRIPT
 
 // < ----- var - variable  ---- >
 
