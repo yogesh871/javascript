@@ -154,12 +154,7 @@ console.log(" formula its correct")
 
     // (a-b)*(a-b)*(a-b) -8
     // (a*a*a)- 3*a*a*b + 3*a*b*b - (b*b*b)  = -8
-    // formula its correct
-
-
-
-
-
+    // formula its corrects
 }
 
 
