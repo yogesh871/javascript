@@ -1,7 +1,7 @@
 
 // 1.
 
-let units = 320, bill, finalbill;
+let units = 50, bill, finalbill;
 
 if(units <= 100){
     bill = units * 0.6 + 50;
@@ -107,4 +107,59 @@ else{
     sectax = 5000 * 0.20
     tax = (firesttax + sectax + thirdtax);
     console.log("Your tax amount is :", tax)
+}
+
+
+// 5 write a program to evulate the total, precentage, grede of a  student for the following constraints
+
+console.log("5. write a program to evulate the total, precentage, grede of a  student for the following constraints")
+
+let mark ;
+ mark = +prompt("Enter your mark:" )
+
+ if(mark > 75 && mark < 100)
+ {
+  console.log("A  grade ")
+ }
+ else if(mark < 75 && 60 < mark )
+ {
+  console.log("B  grade ")
+ }
+ else if(mark < 60 && mark > 45)
+ {
+  console.log("C  grade ")
+ }
+ else if(mark < 45 && mark > 35)
+ {
+  console.log("D  grade ")
+ }
+ else if(mark < 35){
+    console.log("FAIL")
+ }
+ else {
+    console.log("Invalid Mark")
+
+ }
+
+
+
+//  Declare two variable x and y. Assign value to these variables. Number x should be prited  
+//  if itis less then 2000 and greter then  3000, and  number y should be printed only if it  is between 100 and 500.
+
+let x = 3200;
+
+if(x < 2000 || x > 3000){
+    console.log("X",x)
+}
+else{
+    console.log("Value is unvaliade")
+}
+
+
+let y = 200;
+if(y < 500 && y > 100){
+    console.log("Y", y)
+}
+else{
+    console.log("Value is unvaliade")
 }
