@@ -154,7 +154,7 @@ let age;
 age = +(prompt("Enter your  age:", age));
 
 
-if(age < 14){
+if(age > 0 && age < 14){
     console.log("You are a child")
 }
 else if(age > 14 && age < 18){
