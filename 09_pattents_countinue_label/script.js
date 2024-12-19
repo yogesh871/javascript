@@ -4,7 +4,7 @@
  
 console.log("patternts:")
 
-console.log("square patternt")
+console.log("square patternt" )
 let  i, j, data;
  
 for(i = 1; i <=5; i++){
