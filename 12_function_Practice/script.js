@@ -38,13 +38,13 @@ let choice = +prompt("Enter Your Choice :")
     case 1:
         addition();
         break;
-    case 1:
+    case 2:
         subtraction();
         break;
-    case 1:
+    case 3:
         Multiplication();
         break;
-    case 1:
+    case 4:
         Division();
         break;
     default:
