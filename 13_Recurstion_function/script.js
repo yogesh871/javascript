@@ -42,3 +42,18 @@ console.log("Fibonacci series:");
 for (let i = 0; i < num; i++) {
     console.log(fibonacci(i));
 }
+
+
+//  Recursion_functin CountDown 3 to 1
+
+function countDown(Number) {
+    console.log(Number);
+
+    let nextNumber = Number - 1;
+
+    if (nextNumber > 0) {
+        countDown(nextNumber);
+    }
+}
+countDown(3);
+
