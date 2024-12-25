@@ -50,7 +50,7 @@ switch (choice) {
     case 2:
         console.log("Multiplication of x and y:",Multipliction1());
         break;
-    case 3:
+    case 3: 
         addition2(15, 20);
         break;
     case 4:
