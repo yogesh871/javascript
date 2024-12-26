@@ -1,9 +1,15 @@
 //  Question  no. 01
 console.log("Question no. 01");
-function message() {
-    console.log("good morning:")
+let a;
+function message(a) {
+    if(a == null){
+        console.log("good morning:")
+    }
+    else{
+        console.log("hello world....")
+    }
 }
-message()
+message(12)
 
 // output 
 // good morning 
