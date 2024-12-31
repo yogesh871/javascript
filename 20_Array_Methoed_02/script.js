@@ -4,7 +4,7 @@ console.log(Array.isArray(data));
 
 
 //  7. includes Methoed :
-console.log(data.includes(23));
+console.log(data.includes(13));
 
 
 //  8. ForEach Methoed : 
