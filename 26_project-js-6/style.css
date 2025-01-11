@@ -1,0 +1,54 @@
+
+section{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 200px;
+}
+section button{
+    margin: 20px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 18px;
+    border: none;
+    background-color: rgb(28, 49, 49);
+    color: #fff;
+    box-shadow: 5px 2px 5px #000;
+    transition: 0.5s;
+}
+section button:hover{
+    box-shadow: none;
+    background-color: #8560ca;
+    font-weight: 500;
+    color: #000;
+}
+.slider{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.slider img{
+     width: 1000px;
+     height: 400px;
+     margin: 0 50px;
+     border-radius: 10px;
+     transition: opacity 1s ease-in-out;
+     opacity: 1;
+ }
+
+
+.slyder{
+    display: flex;
+    align-items: center;
+}
+
+.countainer{
+
+          
+    margin-left: auto;
+    margin-right: auto;
+    width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+}
