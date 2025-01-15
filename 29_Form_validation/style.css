@@ -1,21 +1,20 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 30%;
     height: 100vh;
-    margin: 0;
+    margin: 80px auto;
   }
-  .form-container {
+  .container {
     background: #ffffff;
-    padding: 30px;
+    padding: 20px 40px 20px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 300px;
   }
-  .form-container h2 {
-    text-align: center;
+  .container h3 {
+    text-align: start;
+    margin-top: 10px;
     margin-bottom: 20px;
   }
   .form-group {
@@ -45,17 +44,25 @@ body {
     margin-right: 5px;
   }
   .submit-btn {
-    width: 100%;
+    width: 105%;
     padding: 10px;
     border: none;
-    background: black;
+    background: #38548f;
     color: #ffffff;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
   }
+  .cheack-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: self-start;
+  }
   .submit-btn:hover {
-    background: #b4b2b2;
-    color: black;
+    background: #000;
+  }
+  .error-message{
+    color: #ff0000;
   }
 

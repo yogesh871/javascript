@@ -2,11 +2,11 @@ document.querySelector("form").addEventListener("submit",(event) => {
     event.preventDefault(); 
 
    
-    document.querySelectorAll(".firstnameError").innerHTML = "";
-    document.querySelectorAll(".lastnameError").innerHTML = "";
-    document.querySelectorAll(".emailError").innerHTML = "";
-    document.querySelectorAll(".passwordError").innerHTML = "";
-    document.querySelectorAll(".genderError").innerHTML = "";
+    document.getElementById("firstnameError").innerHTML = "";
+    document.getElementById("lastnameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("genderError").innerHTML = "";
 
 
     const firstname = document.getElementById("firstname").value;
