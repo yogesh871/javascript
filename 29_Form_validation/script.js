@@ -35,13 +35,34 @@ document.querySelector("form").addEventListener("submit",(event) => {
       document.getElementById("emailError").innerHTML = "Email is required.";
  }
 
-    if (password == "") {
-      document.getElementById("passwordError").innerHTML = "Password is required.";
-    } else if (password.length < 6) {
-      document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters.";
-    }
+ if (password === "") {
+  document.getElementById("passwordError").innerHTML = "Password is required.";
+} else {
+  const message = []; 
+
+  if (password.length < 8) {
+    message.push("Minimum 8 characters");
+  }
+  if (!/[A-Z]/.test(password)) {
+    message.push("An uppercase letter");
+  }
+  if (!/[a-z]/.test(password)) {
+    message.push("A lowercase letter");
+  }
+  if (!/[0-9]/.test(password)) {
+    message.push("A number");
+  }
+  if (!/[!@#$%*(){}><?.,|]/.test(password)) {
+    message.push("A special symbol");
+  }
+  if (message.length > 0) {
+    document.getElementById("passwordError").innerHTML = "Password must include: " + message.join(", ");
+  }
+}
 
     if (!gender) {
       document.getElementById("genderError").innerHTML = "Please select your gender.";
     }
   });
+
+
