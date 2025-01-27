@@ -11,6 +11,7 @@ function Countdown() {
         document.querySelector(".min h2").innerHTML = "0";
         document.querySelector(".secound h2").innerHTML = "0";
         clearInterval(countdownInterval); 
+        
         return;
     }
 
