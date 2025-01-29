@@ -8,7 +8,7 @@ body{
 }
 
 .container{
-    width: 1326px; 
+    width: 100%; 
 }
 
 .banner{
@@ -28,7 +28,7 @@ body{
     border: none;
     border-radius: 30px;
     position: absolute;
-    left: 37%;
+    left: 39%;
     top: 10%;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
@@ -63,8 +63,7 @@ body{
     border: none;
     border-radius: 30px;
     position: absolute;
-    left: 33.33%;
-    right: 33.33%;
+    left: 36.33%;
     top: 54%;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
