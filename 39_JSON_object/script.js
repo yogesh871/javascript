@@ -1,5 +1,6 @@
 // JSON => Javascript Object Notation 
 
+
 //  javascript object => 
 console.log("01. javascript object")
 let jsobj = {
@@ -7,8 +8,8 @@ let jsobj = {
     email : "umesh@0308gmail.com",
     age: 22
 }
-
 console.log(jsobj)
+
 
 //  json object => 
 console.log("02. json object")
@@ -18,8 +19,8 @@ let jsonobj = `{
     "age" : 22}`
 console.log(jsonobj)
 
-//  javascript object convert to json object :
 
+//  javascript object convert to json object :
 console.log("03. javascript object convert to json object")
 let jsonobj_1 = JSON.stringify(jsobj)
 
