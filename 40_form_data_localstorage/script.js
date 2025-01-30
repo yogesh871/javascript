@@ -49,12 +49,12 @@ document.querySelector("form").addEventListener("submit",(event) => {
   if (!/[a-z]/.test(password)) {
     message.push("A lowercase letter");
   }
-//   if (!/[0-9]/.test(password)) {
-//     message.push("A number");
-//   }
-//   if (!/[!@#$%*(){}><?.,|]/.test(password)) {
-//     message.push("A special symbol");
-//   }
+  // if (!/[0-9]/.test(password)) {
+  //   message.push("A number");
+  // }
+  // if (!/[!@#$%*(){}><?.,|]/.test(password)) {
+  //   message.push("A special symbol");
+  // }
   if (message.length > 0) {
     document.getElementById("passwordError").innerHTML = "Password must include: " + message.join(", ");
   }
@@ -65,7 +65,7 @@ document.querySelector("form").addEventListener("submit",(event) => {
     }
 
 
-    const formData = {
+    let formData = {
       firstname: firstname.value,
       lastname: lastname.value,
       email: email.value,
@@ -73,12 +73,44 @@ document.querySelector("form").addEventListener("submit",(event) => {
       gender: gender.value
     };
   
-    const employee = JSON.parse(localStorage.getItem("employee")) || [];
+    let employee = JSON.parse(localStorage.getItem("employee")) || [];
     employee.push(formData);
   
     localStorage.setItem("employee", JSON.stringify(employee));
     document.querySelector("form").reset()
-    
+
+    loadData();
+
   });
 
+  function loadData() {
+    let allData = JSON.parse(localStorage.getItem("employee"))
+    // console.log(allData)
 
+    let result = "";
+    allData.forEach((record, index) => {
+      let row = ` <tr> 
+      <td> ${index + 1}</td>
+      <td> ${record.firstname}</td>
+      <td> ${record.lastname}</td>
+      <td> ${record.email}</td>
+      <td> ${record.gender}</td> 
+      <td><button onclick="DeleteData(${index})"><img src="img/trash.png" alt="" width="15px" padding-left="10px"></button> </td>
+      <td><button onclick="EditData(${index})"><img src="img/edit.png" alt="" width="15px"></button></td> 
+      </tr>`
+
+      result = result + row;
+      
+    });
+    document.querySelector("tbody").innerHTML = result;
+  }
+
+  function DeleteData (index){
+    let allData = JSON.parse(localStorage.getItem("employee"))
+   allData.splice(index, 1);
+   localStorage.setItem("employee", JSON.stringify(allData));
+     loadData()
+  }
+
+
+ loadData();
