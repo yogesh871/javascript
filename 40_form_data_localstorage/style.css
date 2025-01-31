@@ -14,14 +14,6 @@ body {
     width: 300px;
     margin:  80px 40px 80px 40px;
   }
-  .container-1{
-    background: #ffffff;
-    padding: 20px 40px 20px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    margin:  80px 40px 80px 40px;
-  }
   .container h3 {
     text-align: start;
     margin-top: 10px;
@@ -101,38 +93,37 @@ body {
     }
     .container {
       width: 50%;
-      margin-left: 250px;
+      margin: 0 auto;
     }
   }
 
   @media (max-width: 991px) {
-    body{
-      display: flex;
-      flex-direction: column;
-    }
+
     .container {
       width: 50%;
-      margin-left: 150px;
+    }
+  }
+
+  @media (max-width: 765px) {
+
+    .container {
+      width: 65%;
+      margin-left: 120px;
     }
   }
 
   @media (max-width: 576px) {
-    body{
-      display: flex;
-      flex-direction: column;
-    }
     .container {
-      width: 80%;
-      margin-left: 120px;
+      width: 90%;
+    }
+  }
+  @media (max-width: 420px) {
+    .container {
+      width: 100%;
     }
   }
   @media (max-width: 320px) {
-    body{
-      display: flex;
-      flex-direction: column;
-    }
     .container {
-      width: 100%;
-      margin-left: 100px;
+      width: 120%;
     }
   }
