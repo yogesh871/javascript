@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add_To_Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Simple Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <button id="toggleModalBtn" type="button" class="btn btn-primary">Open Modal</button>
+    </nav>
+</header>
+
+<div class="container modal" id="Product_card">
+    <div class="card">
+        <h3>Add New Product</h3>
+        <form id="ProductForm">
+            <div class="form-group">
+                <label>Product Name:</label>
+                <input type="text" id="Product_name" placeholder="Enter product name" required>
+            </div>
+            <div class="form-group mt-3">
+                <label>Product Image:</label>
+                <input type="text" id="Product_image" placeholder="Enter product image URL" required>
+            </div>
+            <div class="form-group mt-3">
+                <label>Price:</label>
+                <input type="text" id="Price" placeholder="Enter product price" required>
+            </div>
+            <div class="form-group mt-3">
+                <label>Description:</label>
+                <input type="text" id="Description" placeholder="Enter product details" required>
+            </div>
+            <button class="submit-btn mt-3" type="submit">Add Product</button>
+        </form>
+    </div>
+</div>
+
+<div class="cont col-12 mt-4"></div>
+
+<script>
+    const modal = document.getElementById("Product_card");
+    const toggleModalBtn = document.getElementById("toggleModalBtn");
+
+    // Toggle Modal Visibility
+    toggleModalBtn.addEventListener("click", () => {
+        const isModalVisible = modal.style.display === "flex";
+        modal.style.display = isModalVisible ? "none" : "flex";
+        toggleModalBtn.textContent = isModalVisible ? "Open Modal" : "Close Modal";
+    });
+
+    document.querySelector("#ProductForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const productName = document.getElementById("Product_name").value;
+        const productImage = document.getElementById("Product_image").value;
+        const price = document.getElementById("Price").value;
+        const description = document.getElementById("Description").value;
+
+        let formData = {
+            Product_name: productName,
+            Product_image: productImage,
+            Price: price,
+            Description: description,
+        };
+
+        let products = JSON.parse(localStorage.getItem("Product")) || [];
+        products.push(formData);
+
+        localStorage.setItem("Product", JSON.stringify(products));
+        document.querySelector("form").reset();
+
+        loadData();
+        modal.style.display = "none"; // Close the modal after form submission
+        toggleModalBtn.textContent = "Open Modal"; // Reset button text
+    });
+
+    function loadData() {
+        let allData = JSON.parse(localStorage.getItem("Product")) || [];
+        let container = document.querySelector(".cont");
+        container.innerHTML = "";
+
+        allData.forEach((record, index) => {
+            let card = document.createElement("div");
+            card.classList.add("product-card", "card", "p-3", "mb-3");
+
+            card.innerHTML = `
+                <div class="product-card__image">
+                    <div class="Product-card_delete">      
+                        <button onclick="deleteProduct(${index})" style="background: none; border: none; cursor: pointer;">
+                            <img src="img/close.png" style="width: 20px;" />
+                        </button>
+                    </div>
+                    <img src="${record.Product_image}" alt="${record.Product_name}" width="100">
+                </div>
+                <div class="product-card__info">
+                    <h2 class="product-card__title">${record.Product_name}</h2>
+                    <p class="product-card__description">${record.Description}</p>
+                    <div class="product-card__price-row">
+                        <span class="product-card__price">${record.Price}</span>
+                        <button class="product-card__btn btn btn-warning mt-2">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function deleteProduct(index) {
+        let products = JSON.parse(localStorage.getItem("Product")) || [];
+        products.splice(index, 1);
+        localStorage.setItem("Product", JSON.stringify(products));
+        loadData();
+    }
+
+    loadData();
+</script>
+</body>
+</html>
