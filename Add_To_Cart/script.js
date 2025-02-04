@@ -1,5 +1,3 @@
-
-
 document.querySelector("#ProductForm").addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -32,9 +30,6 @@ function loadData() {
         let row = `
             <div class="product-card" data-index="${index}">
                 <div class="product-card__image">
-                    <div class="Product-card_delete">      
-                        <img src="img/close.png" style="width: 20px; cursor: pointer;" alt="Delete">
-                    </div>
                     <img src="${record.Product_image}" alt="${record.Product_name}" width="100">
                 </div>
                 <div class="product-card__info">
@@ -52,20 +47,26 @@ function loadData() {
 
     document.querySelector(".cont").innerHTML = result;
 
-    document.querySelectorAll(".Product-card_delete img").forEach((deleteBtn) => {
-        deleteBtn.addEventListener("click", (event) => {
-            let productCard = event.target.closest(".product-card");
-            let index = productCard.dataset.index;
-            deleteProduct(index);
-        });
+    document.querySelectorAll(".product-card__btn").forEach((btn, index) => {
+        btn.addEventListener("click", () => addToCart(index));
     });
 }
 
-function deleteProduct(index) {
+
+
+
+function addToCart(index) {
     let products = JSON.parse(localStorage.getItem("Product")) || [];
-    products.splice(index, 1);
-    localStorage.setItem("Product", JSON.stringify(products));
-    loadData();
+    let cartProducts = JSON.parse(localStorage.getItem("CartProducts")) || [];
+
+    let productToAdd = products[index];
+    cartProducts.push(productToAdd);
+
+    localStorage.setItem("CartProducts", JSON.stringify(cartProducts));
+
+    alert(`${productToAdd.Product_name} added to cart`);
 }
 
 loadData();
+
+
