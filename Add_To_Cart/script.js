@@ -1,10 +1,14 @@
+
 document.querySelector("#ProductForm").addEventListener("submit", (event) => {
     event.preventDefault();
+
+
 
     let productName = document.getElementById("Product_name").value;
     let productImage = document.getElementById("Product_image").value;
     let price = document.getElementById("Price").value;
     let description = document.getElementById("Description").value;
+  
 
     let formData = {
         Product_name: productName,
@@ -20,7 +24,22 @@ document.querySelector("#ProductForm").addEventListener("submit", (event) => {
     document.querySelector("form").reset();
 
     loadData();
+   
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const productForm = document.querySelector("#Product_card");
+  const pro_btn = document.querySelector("#pro-btn");
+  
+  
+  pro_btn.addEventListener("click", () => {
+      if (productForm.style.display === "none") {
+          productForm.style.display = "block";
+      } else {
+          productForm.style.display = "none"
+      }
+    });
+  });
 
 function loadData() {
     let allData = JSON.parse(localStorage.getItem("Product")) || [];
@@ -28,7 +47,7 @@ function loadData() {
     let result = "";
     allData.forEach((record, index) => {
         let row = `
-            <div class="product-card" data-index="${index}">
+            <div class="product-cards" data-index="${index}">
                 <div class="product-card__image">
                     <img src="${record.Product_image}" alt="${record.Product_name}" width="100">
                 </div>
@@ -52,9 +71,6 @@ function loadData() {
     });
 }
 
-
-
-
 function addToCart(index) {
     let products = JSON.parse(localStorage.getItem("Product")) || [];
     let cartProducts = JSON.parse(localStorage.getItem("CartProducts")) || [];
@@ -67,6 +83,5 @@ function addToCart(index) {
     alert(`${productToAdd.Product_name} added to cart`);
 }
 
+
 loadData();
-
-

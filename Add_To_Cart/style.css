@@ -123,11 +123,24 @@ body {
     color: #000;
   }
 
-  .cart a {
+  .cart{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart a, .cart button {
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     color:var(--primary-color);
+    padding: 6px 12px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 50px;
+  }
+
+  .cart button {
+    margin-right: 15px;
   }
   .cart a img {
     width: 16px;
@@ -197,7 +210,7 @@ body {
      flex-wrap: wrap;
 }
 
-.product-card {
+.product-cards {
     width: 280px;
     margin: 60px 20px 0px 20px;
     background-color: var(--card-background);

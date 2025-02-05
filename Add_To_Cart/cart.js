@@ -4,7 +4,7 @@ function loadCartData() {
 
     cartData.forEach((product, index) => {
         result += `
-            <div class="product-card" data-index="${index}">
+            <div class="product-cards" data-index="${index}">
                 <div class="product-card__image">
                 <div class="Product-card_delete">      
                 <img src="img/close.png" style="width: 20px; cursor: pointer;" alt="Delete">
@@ -23,6 +23,22 @@ function loadCartData() {
     });
 
     document.querySelector(".cont").innerHTML = result;
+
+    document.querySelectorAll(".Product-card_delete").forEach((button) => {
+        button.addEventListener("click", removeProduct);
+    });
 }
+
+function removeProduct(event) {
+    let cartData = JSON.parse(localStorage.getItem("CartProducts")) || [];
+    const productCard = event.target.closest(".product-cards");
+    const index = productCard.dataset.index;
+
+    cartData.splice(index, 1);
+    localStorage.setItem("CartProducts", JSON.stringify(cartData));
+
+    loadCartData();
+}
+
 loadCartData();
         
