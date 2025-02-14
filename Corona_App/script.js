@@ -29,10 +29,10 @@ function searchData() {
               const stateElement = document.createElement("div");
                 stateElement.innerHTML = `
                 <div class="state-card">
-                <h1> State Name : ${state.loc}</h1>
-               <p> Cases :  ${state.totalConfirmed} </p>
-               <p> Deaths : ${state.deaths}</p>
-               <p>  Recovered :  ${state.discharged}</p>
+                <h1> State Name : <span class="state-name"> ${state.loc}</span></h1>
+               <p> Cases : <span  class="case-count"> ${state.totalConfirmed} </span> </p>
+               <p> Deaths : <span class="death-count"> ${state.deaths}</span></p>
+               <p>  Recovered : <span class="recovery-count">  ${state.discharged} </span></p>
                 </div>
             
                 `
@@ -42,8 +42,7 @@ function searchData() {
             
         } else {
             alert("No data found!");
-   }
- });
+        }});
 }
 
 
