@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    background: #ffffff;
+    padding: 20px 40px 20px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    margin:  70px auto 10px;
+  }
+
+  .container h3 {
+    text-align: start;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .form-group .gender-options {
+    display: flex;
+    justify-content: space-between;
+  }
+  .form-group .gender-options label {
+    font-weight: normal;
+  }
+  .form-group input[type="radio"] {
+    margin-right: 5px;
+  }
+  .submit-btn {
+    width: 30%;
+    padding: 10px;
+    border: none;
+    background: #dd7979;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px  ;
+  }
+  .cheack-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: self-start;
+  }
+  .submit-btn:hover {
+    background: #C71729;
+  }
+
+  .cont{
+     display: flex;
+     flex-wrap: wrap;
+}
+
+.product-buttons img{
+    width: 20px;
+}
+
+.product_card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 10px ;
+    margin:  40px 10px 0px;
+
+}
+.product-buttons{
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0px 0px ;
+}
+
+.product-img img{
+    border-radius: 10px 10px 0px 0px ;
+    width: 300px;
+    height: 250px;
+}
+
+.product_card .product-info{
+     padding: 15px;
+}
+
+.product_card .product-price{
+    margin:  15px 0px ;
+}
+.product_card .product-category p, .product-price p{
+    font-size: 16px;
+    font-weight: 600;
+}
+.product_card .product-category p span,  .product-price p span{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.Edit-btn, .remove-btn{
+    padding: 6px 8px;
+    border-radius: 50%;
+    background-color: ghostwhite;
+}
+
+.Edit-btn{
+  margin-right: 10px;
+}
