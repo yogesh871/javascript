@@ -1,46 +1,63 @@
 
-const accessKey = "RZEIOVfPhS7vMLkFdd2TSKGFBS4o9_FmcV1Nje3FSjw";
 
-const formEl = document.querySelector("form");
-const searchInputEl = document.getElementById("search-input");
-const searchResultsEl = document.querySelector(".search-results");
-const showMoreButtonEl = document.getElementById("show-more-button");
+let accessKey = "RZEIOVfPhS7vMLkFdd2TSKGFBS4o9_FmcV1Nje3FSjw";
+
+let formEl = document.querySelector("form");
+let searchInputEl = document.getElementById("search-input");
+let searchResultsEl = document.querySelector(".search-results");
+let showMoreButtonEl = document.getElementById("show-more-button");
 
 let inputData = "";
 let page = 1;
 
 async function searchImages() {
-  inputData = searchInputEl.value;
-  const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accessKey}`;
+  inputData = searchInputEl.value.trim();
+  if (inputData === "") return;
 
-  const response = await fetch(url);
-  const data = await response.json();
-  if (page === 1) {
-    searchResultsEl.innerHTML = "";
-  }
+  let url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accessKey}`;
 
-  const results = data.results;
+  try {
+    let response = await fetch(url);
+    let data = await response.json();
 
-  results.map((result) => {
-    const imageWrapper = document.createElement("div");
-    imageWrapper.classList.add("search-result");
-    const image = document.createElement("img");
-    image.src = result.urls.small;
-    image.alt = result.alt_description;
-    const imageLink = document.createElement("a");
-    imageLink.href = result.links.html;
-    imageLink.target = "_blank";
-    imageLink.textContent = result.alt_description;
+    if (page === 1) {
+      searchResultsEl.innerHTML = "";
+    }
 
-    imageWrapper.appendChild(image);
-    imageWrapper.appendChild(imageLink);
-    searchResultsEl.appendChild(imageWrapper);
-  });
+    let results = data.results;
 
-  page++;
+    if (results.length === 0 && page === 1) {
+      searchResultsEl.innerHTML = "<p>No images found. Try a different search term.</p>";
+      showMoreButtonEl.style.display = "none";
+      return;
+    }
 
-  if (page > 1) {
-    showMoreButtonEl.style.display = "block";
+    results.forEach((result) => {
+      let imageWrapper = document.createElement("div");
+      imageWrapper.classList.add("search-result");
+
+      let image = document.createElement("img");
+      image.src = result.urls.small;
+      image.alt = result.alt_description || "Image from Unsplash";
+
+      let imageLink = document.createElement("a");
+      imageLink.href = result.links.html;
+      imageLink.target = "_blank";
+      imageLink.textContent = result.alt_description || "View Image";
+
+      imageWrapper.appendChild(image);
+      imageWrapper.appendChild(imageLink);
+      searchResultsEl.appendChild(imageWrapper);
+    });
+
+    page++;
+
+    showMoreButtonEl.style.display = results.length > 0 ? "block" : "none";
+
+  } catch (error) {
+    console.error("Error fetching images:", error);
+    searchResultsEl.innerHTML = "<p>Failed to load images. Please try again later.</p>";
+    showMoreButtonEl.style.display = "none";
   }
 }
 

@@ -4,19 +4,18 @@ console.log(Array.isArray(data));
 
 
 //  7. includes Methoed :
-console.log(data.includes(13));
-
+console.log(data.includes(13));   // element is there not in array  - return false
+console.log(data.includes(22));   // element is there  in array  - return true
 
 //  8. ForEach Methoed : 
 data.forEach((value, index) => {
-    console.log(index, "===> ", value);
+    console.log(index, "=> ", value);
 })
-
 
 // 9. filter Methoed : 
 let element = [12, 32, 34, 21, 56, 92, 45]
 let a = element.filter((value, index) => {
-    return 30 > value;
+    return 20 < value ;
 })
 console.log(a)
 
@@ -25,7 +24,6 @@ console.log(a)
 let b = element.every((value, index) => {
     return value % 2 === 0
 })
-
 console.log(b)
 
 
