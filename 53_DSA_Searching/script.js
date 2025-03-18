@@ -29,7 +29,7 @@ let  a =  [13, 24, 25, 27, 47, 57, 64, 74, 99]
          } else if (a[mid] < elem){
             right = mid + 1;
          }
-         else if (a[mid] < elem){
+         else if (a[mid] > elem){
             left = mid - 1;
          }
      }
