@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+.testimonial{
+    position: relative;
+    width: 500px;
+    height: 200px;
+    margin:  0 auto;
+    margin-top: 100px;
+    padding: 70px 20px;
+    background-color :slateblue ;
+    border-radius: 12px;
+}
+.testimonial img{
+    position: absolute;
+    width: 80px;
+    border-radius: 50%;
+    top: 10px;
+    transform: translate(-50%, -50px);
+    left: 50%;
+
+}
+.testimonial p{
+    color: white;
+    width: 75%;
+    font-size: 14px;
+    margin:  0 auto;
+    padding: 10px 0px;
+}
+.testimonial h4{
+    color: white;
+    width: 75%;
+    font-size: 16px;
+    margin:  0 auto;
+}
+.d-none{
+    display: none;
+}
