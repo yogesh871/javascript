@@ -62,8 +62,6 @@ s.insert(400)
 s.display()
 
 s.delete()
-s.delete()
-s.delete()
 
 s.peakEle()
 s.display()
