@@ -21,6 +21,10 @@ class stack  {
     }
 
     peakEle() {
+      return this.q1[0]
+    }
+
+    isEmpty() {
         if(this.q1.length == 0){
             console.log("Stack is Empty...")
         }
@@ -45,5 +49,8 @@ q.display()
 q.removedata();
 q.display()
 
-q.peakEle();
+console.log("Queue peak Element is: ", q.peakEle())
+q.display()
+
+q.isEmpty();
 q.display()
